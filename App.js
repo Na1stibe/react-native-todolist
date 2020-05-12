@@ -21,17 +21,23 @@ export default class App extends React.Component{
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content"/>
-      <Text style={styles.title}> Won Seok to do</Text>
-     <View style={styles.card}>
-       <TextInput style={styles.input} 
-       placeholder={"New To Do"} 
-       value={newToDo}
-       onChangeText={this.plusNewToDo}
-       placeholderTextColor={"#999"}/>
-       <ScrollView>
+      <Text style={{
+    color: "#808080",
+    fontSize: 30,
+    marginTop: 50,
+    fontWeight:"200",
+    marginBottom: 30}}> Won Seok to do</Text>
+      <View style={styles.card}>
+        <TextInput 
+         style={styles.input} 
+         placeholder={"New To Do"} 
+         value={newToDo}
+         onChangeText={this.plusNewToDo}
+         placeholderTextColor={"#999"}/>
+        <ScrollView contentContainerStyle={styles.toDos}>
          <ToDo/>
-       </ScrollView>
-     </View>
+        </ScrollView>
+      </View>
     </View>
   );
  }
@@ -39,14 +45,14 @@ export default class App extends React.Component{
    this.setState({
      newToDo: text
    });
- }
+ };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#ff7f00',
-    alignItems: 'center',
+    alignItems: "center",
   },
   title:{
     color: "#808080",
@@ -81,5 +87,8 @@ const styles = StyleSheet.create({
     borderBottomColor: "#808080",
     borderBottomWidth: 1,
     fontSize: 25
+  },
+  toDos:{
+    alignItems:"center"
   }
 });
